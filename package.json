@@ -39,9 +39,10 @@
     "moment": "^2.29.1",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.17",
+    "pg": "^8.11.2",
     "reflect-metadata": "^0.1.13",
     "sqlite": "^4.0.23",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^5.1.6",
     "typeorm": "^0.2.34",
     "validator": "13.5.2"
   },

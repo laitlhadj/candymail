@@ -41,7 +41,7 @@ export const sampleWorkflows: Workflow[] = [
 ]
 
 export const sampleOpts: Options = {
-  mail: {
+  mail: [{
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
@@ -52,7 +52,7 @@ export const sampleOpts: Options = {
     tls: {
       rejectUnauthorized: true,
     },
-  },
+  }],
   hosting: { url: 'process.env.HOSTING_URL' },
   db: { reset: true },
   debug: { trace: true },

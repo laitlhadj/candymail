@@ -17,7 +17,7 @@ candymail
       },
     },
     hosting: { url: process.env.HOSTING_URL },
-    db: { reset: true },
+    db: { reset: false },
     debug: { trace: true },
   })
   .then(() => {
@@ -33,11 +33,12 @@ candymail
     //   body: 'string',
     // })
 
-    someConditionSatisfiedByUser()
+    //someConditionSatisfiedByUser()
   })
 
 const someConditionSatisfiedByUser = async () => {
-  params=[{key:"Firstname",value:"Harry"},{key:"Lastname",value:"GBAGUIDI"}]
+  //params=[{key:"Laurent",value:"AIT LHADJ"},{key:"Melvin",value:"GBAGUIDI"}]
+  params=[{key:"firstname",value:"Laurent"},{key:"lastname",value:"Ait lhadj"}]
   const user = process.env.RECIPIENT_EMAIL
   candymail.runWorkflow('welcome-series', user,params)
 }

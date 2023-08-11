@@ -7,20 +7,24 @@ const port = 3000
 const automation = require('../candymail.automation.json')
 candymail
   .init(automation.workflows, {
-    mail: {
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASSWORD,
+    mail: [
+      {
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASSWORD,
+        },
+        tls: {
+          rejectUnauthorized: true,
+        },
       },
-      tls: {
-        rejectUnauthorized: true,
-      },
-    },
+
+      
+    ],
     hosting: { url: process.env.HOSTING_URL },
-    db: { reset: true },
+    db: { reset: false },
     debug: { trace: true },
   })
   .then((e) => {
@@ -31,8 +35,12 @@ candymail
     })
 
     app.get('/start', async (req, res) => {
+      
+      params=[{key:"firstname",value:"Laurent"},{key:"lastname",value:"Ait lhadj"},]
       const user = process.env.RECIPIENT_EMAIL
-      candymail.runWorkflow('workflow1', user)
+      candymail.runWorkflow('welcome-series', user, 'laurent.aitlhadj@gmail.com', params)
+
+      //candymail.runWorkflow('workflow1', user)
 
       res.send('workflow1 started')
     })

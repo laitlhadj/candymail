@@ -9,7 +9,7 @@ const sendEmail = (message: MessageRow) => {
     email: { sendFrom, sendTo, subject, body },
   } = message
 
-  const transporter = getTransporter()
+  const transporter = getTransporter(sendFrom)
 
   const html = `${body}<br><a href="${getConfig().hosting.url
     }/unsubscribe?email=${sendTo}">Click here to unsubscribe</a>`

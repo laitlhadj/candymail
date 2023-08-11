@@ -38,7 +38,7 @@ export type MailOptions = {
 }
 
 export type Options = {
-  mail: MailOptions
+  mail: MailOptions[]
   hosting: HostingOptions
   db: DatabaseOptions
   debug: DebugOptions
